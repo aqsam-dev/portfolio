@@ -7,7 +7,7 @@ function Hero() {
       <div>
         <p className="mb-6 flex items-center gap-2.5 font-mono text-xs uppercase tracking-wider text-accent">
           <span className="h-2 w-2 rounded-full bg-accent" />
-          Full-Stack Developer — Rawalpindi, Pakistan
+          Full-Stack Developer — Pakistan
         </p>
 
         <h1 className="mb-6 font-serif text-5xl font-semibold leading-none tracking-tight sm:text-6xl md:text-7xl">
@@ -16,9 +16,8 @@ function Hero() {
         </h1>
 
         <p className="mb-10 max-w-xl text-base leading-relaxed text-ink-soft sm:text-xl">
-          I build full-stack software for real-world problems — starting with a
-          platform connecting patients to nearby pharmacies. React, Node.js,
-          and PostgreSQL, end to end.
+          I build scalable and secure full-stack software for real-world problems — Crafting Beautiful Interfaces with Powerful Backends. React, Node.js,
+          and PostgreSQL and MongoDB, end to end.
         </p>
 
         <div className="flex gap-3">
