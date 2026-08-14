@@ -1,6 +1,7 @@
 import Splash from "./components/Splash";
 import CursorGlow from "./components/CursorGlow";
-import Hero from "./components/Hero";
+import ProfilePanel from "./components/ProfilePanel";
+import PortfolioContent from "./components/PortfolioContent";
 
 function App() {
   return (
@@ -8,9 +9,13 @@ function App() {
       <Splash />
       <CursorGlow />
 
-      <main className="relative z-10 flex min-h-screen items-center px-6 py-16 sm:px-10 lg:px-[8vw]">
-        <Hero />
-      </main>
+      <div className="relative z-10 min-h-screen overflow-x-clip lg:grid lg:grid-cols-[42vw_58vw]">
+        <ProfilePanel />
+
+        <main className="min-w-0">
+          <PortfolioContent />
+        </main>
+      </div>
     </>
   );
 }
