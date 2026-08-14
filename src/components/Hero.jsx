@@ -3,7 +3,7 @@ import DeveloperIllustration from "./DeveloperIllustration";
 
 function Hero() {
   return (
-    <section className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <section id="about" className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
       <div>
         <p className="mb-6 flex items-center gap-2.5 font-mono text-xs uppercase tracking-wider text-accent">
           <span className="h-2 w-2 rounded-full bg-accent" />
@@ -45,7 +45,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="order-first flex justify-center lg:order-last lg:justify-end">
+      <div className="order-first flex justify-center xl:order-last xl:justify-end">
         <DeveloperIllustration />
       </div>
     </section>
