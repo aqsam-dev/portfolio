@@ -5,40 +5,34 @@ function SkillsSection() {
         03 / Skills
       </p>
 
-      <div className="mt-8 grid max-w-3xl gap-x-14 gap-y-9 sm:grid-cols-2">
+      <div className="mt-8 grid max-w-5xl gap-x-12 gap-y-10 md:grid-cols-3">
         <div>
           <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-ink">
-            Frontend
+            Languages
           </h3>
+
           <p className="mt-3 leading-relaxed text-ink-soft">
-            React, JavaScript, Tailwind CSS, HTML, CSS
+            JavaScript (ES6+), HTML5, CSS3, SQL, Dart
           </p>
         </div>
 
         <div>
           <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-ink">
-            Backend
+            Frameworks
           </h3>
+
           <p className="mt-3 leading-relaxed text-ink-soft">
-            Node.js, Express.js, REST APIs, JWT Authentication
+            React, Node.js, Express.js, Tailwind CSS, Flutter, Socket.io
           </p>
         </div>
 
         <div>
           <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-ink">
-            Database
+            Tools &amp; Platforms
           </h3>
-          <p className="mt-3 leading-relaxed text-ink-soft">
-            PostgreSQL, MongoDB
-          </p>
-        </div>
 
-        <div>
-          <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-ink">
-            Tools
-          </h3>
           <p className="mt-3 leading-relaxed text-ink-soft">
-            Git, GitHub, Vercel, Postman, Docker fundamentals
+            PostgreSQL, MongoDB, Git, GitHub, Postman, Vercel, Cloudinary, Docker fundamentals
           </p>
         </div>
       </div>
