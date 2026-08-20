@@ -109,7 +109,7 @@ export default function Footer() {
         title
         className="text-4xl md:text-5xl font-bold text-light-text dark:text-dark-heading"
       >
-        Let&apos;s build something useful.
+        Let&apos;s build something.
       </Reveal>
 
       <Reveal
