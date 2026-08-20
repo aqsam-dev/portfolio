@@ -19,8 +19,8 @@ const items = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="max-w-[1400px] mx-auto px-10 py-28 border-t border-light-border dark:border-dark-border">
-      <Reveal as="h2" title className="text-4xl md:text-5xl font-bold leading-[1.3] mb-14 tracking-[-0.5px] text-center text-light-text dark:text-dark-heading">
+    <section id="experience" className="max-w-[1400px] mx-auto px-10 py-14 md:py-20 border-t border-light-border dark:border-dark-border">
+      <Reveal as="h2" title className="text-4xl md:text-5xl font-bold leading-[1.3] mb-5 md:mb-10 tracking-[-0.5px] text-center text-light-text dark:text-dark-heading">
         Experience
       </Reveal>
 
