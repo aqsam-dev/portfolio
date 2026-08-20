@@ -84,7 +84,7 @@ export default function Footer() {
   return (
     <section
       id="contact"
-      className="scroll-mt-24 max-w-[1400px] mx-auto px-5 sm:px-8 md:px-10 py-20 md:py-28 text-center border-t border-light-border dark:border-dark-border"
+      className="scroll-mt-24 max-w-[1400px] mx-auto px-5 sm:px-8 md:px-10 pt-10 pb-4 md:pt-16 md:pb-6 text-center border-t border-light-border dark:border-dark-border"
     >
       {topCursor.visible && (
         <div
@@ -168,9 +168,8 @@ export default function Footer() {
 
       <p
         aria-live="polite"
-        className={`mt-5 text-sm font-semibold text-accent-light dark:text-accent-soft transition-opacity duration-300 ${
-          emailCopied ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`mt-5 text-sm font-semibold text-accent-light dark:text-accent-soft transition-opacity duration-300 ${emailCopied ? 'opacity-100' : 'opacity-0'
+          }`}
       >
         Email copied to clipboard.
       </p>
@@ -204,10 +203,9 @@ export default function Footer() {
           hover:-translate-y-1 hover:bg-accent-light hover:text-white
           dark:border-accent-soft/50 dark:bg-dark-card/90
           dark:text-accent-soft dark:hover:bg-accent dark:hover:text-white
-          ${
-            showBackToTop
-              ? 'translate-y-0 opacity-100'
-              : 'pointer-events-none translate-y-5 opacity-0'
+          ${showBackToTop
+            ? 'translate-y-0 opacity-100'
+            : 'pointer-events-none translate-y-5 opacity-0'
           }
         `}
       >
