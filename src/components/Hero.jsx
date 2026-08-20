@@ -67,15 +67,7 @@ export default function Hero() {
         <span className="w-[7px] h-[7px] rounded-full bg-accent-light dark:bg-accent-soft shadow-[0_0_10px_rgba(109,40,217,.55)] dark:shadow-[0_0_12px_rgba(196,181,253,.7)]" />
         Open to opportunities
       </Reveal>
-
-      <Reveal
-        as="p"
-        delay={1}
-        className="text-base sm:text-xl md:text-2xl font-normal tracking-[0.08em] uppercase mb-4 font-mono text-accent-light dark:text-accent-soft"
-      >
-        Hi, my name is Aqsam Shahid.
-      </Reveal>
-
+      
       <Reveal
         as="h1"
         delay={1}
