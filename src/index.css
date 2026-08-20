@@ -88,7 +88,6 @@ body {
     background-size: 34px 34px, 34px 34px, 34px 34px, 8px 8px, 8px 8px;
     -webkit-mask-image: radial-gradient(ellipse 82% 78% at 69% 50%, #000 12%, transparent 82%);
     mask-image: radial-gradient(ellipse 82% 78% at 69% 50%, #000 12%, transparent 82%);
-    animation: gridDrift 18s linear infinite;
   }
   .dark .hero-grid::before {
     background-image: radial-gradient(circle at 66% 47%, rgba(196, 181, 253, 0.16) 0 2px, transparent 3px),
@@ -114,20 +113,23 @@ body {
   }
 
   /* Soft floating color blobs behind the hero */
-  .aurora {
-    position: absolute;
-    width: min(52vw, 720px);
-    height: min(44vw, 580px);
-    z-index: -2;
-    border-radius: 9999px;
-    filter: blur(58px);
-    opacity: 0.22;
-    pointer-events: none;
-  }
-  .dark .aurora {
-    opacity: 0.38;
-    filter: blur(48px);
-  }
+.aurora {
+  position: absolute;
+  width: min(52vw, 720px);
+  height: min(44vw, 580px);
+  z-index: -2;
+  border-radius: 9999px;
+  filter: blur(36px);
+  opacity: 0.14;
+  pointer-events: none;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.dark .aurora {
+  opacity: 0.26;
+  filter: blur(36px);
+}
   .aurora-one {
     right: -8%;
     top: 9%;
@@ -170,29 +172,24 @@ body {
   }
 }
 
-@keyframes gridDrift {
-  to {
-    background-position: 48px 48px;
-  }
-}
 
 .aurora {
   will-change: transform;
 }
 
 @media (max-width: 768px) {
-  .aurora-two {
+  .aurora-two,
+  .noise-overlay,
+  .cursor-glow {
     display: none;
   }
 
-  .hero-grid {
+  .hero-grid::before {
     animation: none;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .aurora,
-  .hero-grid {
-    animation: none !important;
+  .aurora {
+    filter: blur(28px);
+    opacity: 0.18;
   }
 }

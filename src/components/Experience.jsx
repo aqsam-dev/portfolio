@@ -13,13 +13,13 @@ const items = [
     title: 'Bachelor of Science, Computer Science',
     org: 'University of the Punjab',
     location: 'Lahore, Pakistan',
-    body: 'Completed comprehensive CS curriculum with focus on full-stack development and AI/ML systems. Shipped multiple production applications, maintained 3.7 GPA. Specialized coursework in databases, algorithms, and system design.',
+    body: 'Completed comprehensive CS curriculum with focus on full-stack development. Shipped multiple production applications, maintained 3.3 CGPA. Specialized coursework in databases, algorithms, and software enginnering.',
   },
 ]
 
 export default function Experience() {
   return (
-    <section id="experience" className="max-w-[1400px] mx-auto px-10 py-14 md:py-20 border-t border-light-border dark:border-dark-border">
+    <section id="experience" className="scroll-mt-24 max-w-[1400px] mx-auto px-5 sm:px-8 md:px-10 pt-10 pb-4 md:pt-16 md:pb-6 border-t border-light-border dark:border-dark-border">
       <Reveal as="h2" title className="text-4xl md:text-5xl font-bold leading-[1.3] mb-5 md:mb-10 tracking-[-0.5px] text-center text-light-text dark:text-dark-heading">
         Experience
       </Reveal>

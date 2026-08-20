@@ -104,8 +104,8 @@ export default function Hero() {
             event.preventDefault()
             scrollToSection('#work')
           }}
-          onPointerEnter={(event) => showCursor(event, 'WORK')}
-          onPointerMove={(event) => showCursor(event, 'WORK')}
+          onPointerEnter={(event) => showCursor(event, 'VIEW')}
+          onPointerMove={(event) => showCursor(event, 'VIEW')}
           onPointerLeave={hideCursor}
           className="md:cursor-none py-4 px-9 rounded-md text-center text-base font-semibold border transition-transform hover:-translate-y-0.5 hover:shadow-xl bg-accent-light border-accent-light text-white dark:bg-accent dark:border-accent"
         >
@@ -118,8 +118,8 @@ export default function Hero() {
             event.preventDefault()
             scrollToSection('#contact')
           }}
-          onPointerEnter={(event) => showCursor(event, 'HI!')}
-          onPointerMove={(event) => showCursor(event, 'HI!')}
+          onPointerEnter={(event) => showCursor(event, 'SAY Hi')}
+          onPointerMove={(event) => showCursor(event, 'SAY Hi')}
           onPointerLeave={hideCursor}
           className="md:cursor-none py-4 px-9 rounded-md text-center text-base font-semibold border transition-transform hover:-translate-y-0.5 hover:shadow-xl bg-transparent border-accent-light text-accent-light dark:border-accent-soft dark:text-accent-soft"
         >

@@ -11,7 +11,7 @@ const skillGroups = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="max-w-[1400px] mx-auto px-10 py-14 md:py-20 border-t border-light-border dark:border-dark-border">
+    <section id="skills" className="scroll-mt-24 max-w-[1400px] mx-auto px-5 sm:px-8 md:px-10 pt-10 pb-4 md:pt-16 md:pb-6 border-t border-light-border dark:border-dark-border">
       <Reveal as="h2" title className="text-4xl md:text-5xl font-bold leading-[1.3] mb-5 md:mb-10 tracking-[-0.5px] text-center text-light-text dark:text-dark-heading">
         What I used.
       </Reveal>
