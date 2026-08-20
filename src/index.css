@@ -175,3 +175,24 @@ body {
     background-position: 48px 48px;
   }
 }
+
+.aurora {
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .aurora-two {
+    display: none;
+  }
+
+  .hero-grid {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora,
+  .hero-grid {
+    animation: none !important;
+  }
+}
