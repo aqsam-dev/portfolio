@@ -1,45 +1,177 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap");
-@import "tailwindcss";
-
-@theme {
-  --color-page: #f3f5f6;
-  --color-ink: #101820;
-  --color-ink-soft: #5b6b73;
-  --color-accent: #0f9b8e;
-  --color-line: #d8dee1;
-
-  --font-sans: "Inter", sans-serif;
-  --font-serif: "Fraunces", serif;
-  --font-mono: "JetBrains Mono", monospace;
-
-  --animate-blink: blink 1s steps(1) infinite;
-  --animate-card-in: card-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  min-width: 320px;
-  background: #f3f5f6;
-  color: #101820;
+  font-family: 'Inter', sans-serif;
 }
 
-@keyframes blink {
-  50% {
-    opacity: 0;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-@keyframes card-in {
-  from {
+@layer components {
+  /* Scroll-in reveal animation, driven by the `.is-visible` class toggled via IntersectionObserver */
+  .reveal {
     opacity: 0;
-    transform: scale(0.92) translateY(8px);
+    transform: translateY(30px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
   }
-
-  to {
+  .reveal.is-visible {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: translateY(0);
+  }
+  .reveal-title {
+    transform: translateY(28px) scale(0.97);
+    transition-duration: 0.85s;
+  }
+  .reveal-title.is-visible {
+    transform: translateY(0) scale(1);
+  }
+  .reveal-delay-1 {
+    transition-delay: 0.12s;
+  }
+  .reveal-delay-2 {
+    transition-delay: 0.22s;
+  }
+
+  /* Ambient cursor-following glow */
+  .cursor-glow {
+    position: fixed;
+    width: 540px;
+    height: 540px;
+    border-radius: 9999px;
+    pointer-events: none;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.17) 0%, rgba(124, 58, 237, 0.05) 32%, transparent 68%);
+    transition: opacity 0.25s ease;
+  }
+  .dark .cursor-glow {
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.17), rgba(167, 139, 250, 0.05) 32%, transparent 68%);
+  }
+
+  /* Full-page grain texture */
+  .noise-overlay {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    pointer-events: none;
+    opacity: 0.017;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E");
+  }
+  .dark .noise-overlay {
+    opacity: 0.028;
+  }
+
+  /* Dot + line grid behind the hero copy */
+  .hero-grid::before {
+    content: '';
+    position: absolute;
+    inset: 3% -5% 3% 24%;
+    z-index: -1;
+    background-image: radial-gradient(circle at 66% 47%, rgba(109, 40, 217, 0.14) 0 2px, transparent 3px),
+      linear-gradient(rgba(109, 40, 217, 0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(109, 40, 217, 0.15) 1px, transparent 1px),
+      linear-gradient(rgba(109, 40, 217, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(109, 40, 217, 0.04) 1px, transparent 1px);
+    background-size: 34px 34px, 34px 34px, 34px 34px, 8px 8px, 8px 8px;
+    -webkit-mask-image: radial-gradient(ellipse 82% 78% at 69% 50%, #000 12%, transparent 82%);
+    mask-image: radial-gradient(ellipse 82% 78% at 69% 50%, #000 12%, transparent 82%);
+    animation: gridDrift 18s linear infinite;
+  }
+  .dark .hero-grid::before {
+    background-image: radial-gradient(circle at 66% 47%, rgba(196, 181, 253, 0.16) 0 2px, transparent 3px),
+      linear-gradient(rgba(196, 181, 253, 0.18) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(196, 181, 253, 0.18) 1px, transparent 1px),
+      linear-gradient(rgba(196, 181, 253, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(196, 181, 253, 0.05) 1px, transparent 1px);
+  }
+  .hero-grid::after {
+    content: '</>';
+    position: absolute;
+    right: 8%;
+    top: 28%;
+    z-index: -1;
+    color: rgba(109, 40, 217, 0.055);
+    font-size: clamp(120px, 20vw, 300px);
+    font-weight: 800;
+    letter-spacing: -24px;
+    user-select: none;
+  }
+  .dark .hero-grid::after {
+    color: rgba(196, 181, 253, 0.1);
+  }
+
+  /* Soft floating color blobs behind the hero */
+  .aurora {
+    position: absolute;
+    width: min(52vw, 720px);
+    height: min(44vw, 580px);
+    z-index: -2;
+    border-radius: 9999px;
+    filter: blur(58px);
+    opacity: 0.22;
+    pointer-events: none;
+  }
+  .dark .aurora {
+    opacity: 0.38;
+    filter: blur(48px);
+  }
+  .aurora-one {
+    right: -8%;
+    top: 9%;
+    background: rgba(124, 58, 237, 0.42);
+  }
+  .aurora-two {
+    right: 18%;
+    bottom: 3%;
+    width: min(38vw, 520px);
+    height: min(32vw, 420px);
+    background: rgba(196, 181, 253, 0.26);
+    animation-delay: -7s;
+  }
+
+  /* Cursor-tracked spotlight inside project cards, positioned via inline CSS vars */
+  .spotlight-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .spotlight-card > * {
+    position: relative;
+    z-index: 1;
+  }
+  .spotlight-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(520px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(109, 40, 217, 0.1), transparent 48%);
+    transition: opacity 0.32s ease;
+  }
+  .dark .spotlight-card::after {
+    background: radial-gradient(520px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(196, 181, 253, 0.16), transparent 48%);
+  }
+  .spotlight-card:hover::after {
+    opacity: 1;
+  }
+}
+
+@keyframes gridDrift {
+  to {
+    background-position: 48px 48px;
   }
 }

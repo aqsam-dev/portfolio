@@ -1,52 +1,27 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react'
 
-function CursorGlow() {
-  const glowRef = useRef(null);
+export default function CursorGlow() {
+  const ref = useRef(null)
 
   useEffect(() => {
-    const canUseGlow = window.matchMedia(
-      "(hover: hover) and (pointer: fine)"
-    ).matches;
+    const el = ref.current
+    if (!el) return
+    const move = (e) => {
+      el.style.left = `${e.clientX}px`
+      el.style.top = `${e.clientY}px`
+    }
+    const leave = () => (el.style.opacity = '0')
+    const enter = () => (el.style.opacity = '1')
 
-    if (!canUseGlow) return undefined;
-
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let glowX = mouseX;
-    let glowY = mouseY;
-    let frameId;
-
-    const moveGlow = (event) => {
-      mouseX = event.clientX;
-      mouseY = event.clientY;
-    };
-
-    const animate = () => {
-      glowX += (mouseX - glowX) * 0.08;
-      glowY += (mouseY - glowY) * 0.08;
-
-      if (glowRef.current) {
-        glowRef.current.style.transform = `translate(${glowX}px, ${glowY}px) translate(-50%, -50%)`;
-      }
-
-      frameId = requestAnimationFrame(animate);
-    };
-
-    window.addEventListener("mousemove", moveGlow);
-    animate();
-
+    window.addEventListener('pointermove', move)
+    window.addEventListener('pointerleave', leave)
+    window.addEventListener('pointerenter', enter)
     return () => {
-      window.removeEventListener("mousemove", moveGlow);
-      cancelAnimationFrame(frameId);
-    };
-  }, []);
+      window.removeEventListener('pointermove', move)
+      window.removeEventListener('pointerleave', leave)
+      window.removeEventListener('pointerenter', enter)
+    }
+  }, [])
 
-  return (
-    <div
-      ref={glowRef}
-      className="pointer-events-none fixed top-0 left-0 z-0 hidden h-105 w-105 rounded-full bg-[radial-gradient(circle,rgba(15,155,142,0.16)_0%,rgba(15,155,142,0)_70%)] md:block"
-    />
-  );
+  return <div ref={ref} className="cursor-glow" aria-hidden="true" />
 }
-
-export default CursorGlow;
