@@ -3,17 +3,30 @@ import Reveal from './Reveal'
 const projects = [
   {
     title: 'MedSpot',
-    subtitle: 'Healthcare Platform — Real-time Prescription Management',
+    subtitle: 'Healthcare Platform — Real-time Prescription Management & Multi-Portal System',
     year: '2026',
     description:
-      'Full-stack healthcare platform connecting patients with nearby pharmacies for medicine availability, prescription handling, and reservations. Built as an end-to-end academic product with an OCR-assisted prescription workflow.',
+      'Full-stack healthcare ecosystem connecting patients with nearby pharmacies for real-time medicine availability, OCR-assisted prescription handling, and reservations — spanning a patient mobile app, pharmacy web portal, admin dashboard, and POS system. Led a team of 3 as team lead, building an end-to-end academic product with production-style architecture.',
     highlights: [
-      'Built 20+ REST endpoints with JWT authentication and role-based access control',
-      'Engineered real-time reservation updates using Socket.io and time-bound reservation flows',
-      'Developed Flutter companion app for patient-side features and searches',
-      'Integrated EasyOCR pipeline for automated prescription image extraction',
+      'Designed and tested 30+ REST API endpoints with JWT authentication, role-based access control, and Google OAuth 2.0 for secure mobile login',
+      'Engineered real-time reservation updates using Socket.io, with time-bound, fair-use reservation flows',
+      'Built a dedicated OCR microservice (Python/FastAPI + EasyOCR) to auto-extract medicine names and dosage from prescription images',
+      'Integrated Cloudinary for prescription image storage and Google Maps API for live pharmacy directions',
+      'Developed a Flutter companion app for patients, plus separate React.js web portals for pharmacy staff and platform admins',
     ],
-    tags: ['React.js', 'Node.js', 'Express.js', 'PostgreSQL', 'Socket.io', 'EasyOCR', 'Flutter'],
+    tags: [
+      'React.js',
+      'Node.js',
+      'Express.js',
+      'PostgreSQL',
+      'Socket.io',
+      'EasyOCR',
+      'Flutter',
+      'FastAPI',
+      'Google OAuth',
+      'Cloudinary',
+      'Google Maps API',
+    ],
     codeUrl: 'https://github.com/aqsam-dev/medspot_platform',
   },
 ]
